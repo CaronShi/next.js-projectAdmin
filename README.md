@@ -64,16 +64,13 @@ http://localhost:3080/projectlist/36f0913c-9f37-41fe-99a0-85acb2324b39
 		1. grantModelPermissionsToViewersInOrg authorize for a user_id array
 		
 ### Edit Project http://localhost:3080/projectlist/project/:model_id/edit
-
 1. √ Get model detail information as input placeholder
 	1. GET /model/:model_id/:org_id (getModelById)
 2. √ Get user's role in that model, if user is admin they can edit & delete, viewer can not
 	1. POST user_model/view-access { modelID: ..., orgID...}
 3. √ Get users permission, viewers can be non-checked, non-viewers can be checked
 	1. GET /user_model/non-viewers/:org_id/:model_id to get all non-viewers of a project, returns a userIds array
-	2. GET /user_model/viewers/:org
-
-_id/:model_id to get all viewers of a project, returns a userIds array
+	2. GET /user_model/viewers/:org_id/:model_id to get all viewers of a project, returns a userIds array
 4. √ Update form info
 	1. PUT /model/:model_id/:org_id to update a project/edit
 	2. TODO: The backend still requires thresholds to be mandatory, this needs to be changed.
@@ -84,14 +81,13 @@ _id/:model_id to get all viewers of a project, returns a userIds array
 ### Request a Model Permission
 1. √ Obtain the user's role permission, the button is only displayed for non-viewers of that model
 	1. POST /user_model/view-access
-TO DO
 2. The backend needs a POST request API, and model request status added to the data schema (categorized as notRequested, pending, approved)
 	1. √ If the request button is pressed, the button status will change to pending
 3. The backend needs a GET API for models with request status
 
 ## Admin Backend Routes
 
-Run the development server with:
+Run the Nest.js development server with:
 
 ```bash
 npm run start:dev
@@ -117,13 +113,9 @@ POST /user_model/view-access to query a user's permissions for a specific projec
 
 GET /user_model/viewers/:org_id/:model_id to get all viewers of a project, returns a userIds array
 
-GET /user_model/non-viewers/:org_id/:model_id to get all non-view
+GET /user_model/non-viewers/:org_id/:model_id to get all non-viewers of a project, returns a userIds array
 
-ers of a project, returns a userIds array
-
-POST /user_model/grant-permissions/:model_id/:org_id to grant viewer permissions to a batch of users (userids)
-
-/user_org
+POST /user_model/grant-permissions/:model_id/:org_id to grant viewer permissions to a batch of users (userids)/user_org
 
 GET /user_org/viewers/:id to get all viewers of an organization, returns a userIds array
 
