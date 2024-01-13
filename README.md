@@ -36,8 +36,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Workflow and decription
 
-Sure, here's the translated content:
-
 ### Project List http://localhost:3080/projectlist/:org_id
 http://localhost:3080/projectlist/36f0913c-9f37-41fe-99a0-85acb2324b39
 
